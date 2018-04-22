@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+        <title>TES PAULI</title>
+        
+    </head>
+    <body>
+        Jumlah Kolom  : <input type="text" id="txtkol"> <br>
+        Jumlah Baris  : <input type="text" id="txtbar"> <br>
+        <input type="submit" value="Prosess" onclick="init_prc()" />
+        <hr>
+        <p id="hasil">
+                
+        </p>
+
+        <script>
+            var pesan   = "sesdfdsf";
+            var thd     = "<table border=1 style=\"border-collapse : collapse; border-right : tick; \">";
+            var thdc    = "</table>";
+            var trw     = "<tr>";
+            var trwc    = "</tr>";
+            var tcol    = "<td width=100>";
+            var tcolc   = "</td>";        
+            
+    
+            function init_prc(){
+                var ttlkol = document.getElementById("txtkol").value;
+                var ttlbar = document.getElementById("txtbar").value;
+                var hgen ="";
+                hgen += thd;                       
+                
+                for (var i=1; i<=ttlbar ; i++) {
+                    //hgen += trw + tcol + i + tcolc + trwc;                   
+                    hgen += trw;
+                    for (var r=1; r<=ttlkol ; r++) {
+                        //"["+i+","+r+"]"
+                        var nilairan = Math.round(Math.random() * 9) ;
+                        hgen += tcol + nilairan + tcolc;
+                    }
+                    hgen += trwc;
+                }
+                hgen += thdc;
+                hgen = "Total Baris = "+ttlbar+", Total Kolom ="+ttlkol+"<br>"+ hgen;
+                document.getElementById("hasil").innerHTML = hgen;                           
+            }
+        </script>
+    </body>
+</html>
